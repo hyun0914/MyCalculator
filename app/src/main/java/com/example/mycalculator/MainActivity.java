@@ -3,6 +3,7 @@ package com.example.mycalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -46,40 +47,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void VariousButton(View view){
-        if(view==number0){
-            numberText.setText(numberText.getText().toString()+0);
+        String butStr = ((Button)view).getText().toString();
+        if(view==number0 || view==number1 || view==number2 || view==number3 || view==number4
+                || view==number5 || view==number6 || view==number7 || view==number8 || view==number9){
+            numberText.setText(numberText.getText().toString()+butStr);
             numberSave2 = numberText.getText().toString();
-        }else if(view==number1){
-            numberText.setText(numberText.getText().toString()+1);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number2){
-            numberText.setText(numberText.getText().toString()+2);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number3){
-            numberText.setText(numberText.getText().toString()+3);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number4){
-            numberText.setText(numberText.getText().toString()+4);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number5){
-            numberText.setText(numberText.getText().toString()+5);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number6){
-            numberText.setText(numberText.getText().toString()+6);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number7){
-            numberText.setText(numberText.getText().toString()+7);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number8){
-            numberText.setText(numberText.getText().toString()+8);
-            numberSave2 = numberText.getText().toString();
-        }else if(view==number9){
-            numberText.setText(numberText.getText().toString()+9);
-            numberSave2 = numberText.getText().toString();
+
         }else if(view==plus){
+
             if(numberText.getText().toString() == ""){
 
             }else if(numberText.getText().toString() != null) {
+
                 numberSave = numberText.getText().toString();
                 numberText.setText("");
                 where = 1;
@@ -198,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         else if(view==decimalPoint){
+            if(numberText.getText().toString().indexOf(".") != -1) return;
             numberText.setText(numberText.getText().toString()+".");
         }
 //        else if(view==bracket){
